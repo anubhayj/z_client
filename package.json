@@ -14,10 +14,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.ibm.com:cloudMatrix-CAM/ecam-discovery-adapter.git"
-  },
   "author": "anubhayj@gmail.com",
   "license": "ISC"
 }
