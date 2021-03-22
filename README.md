@@ -5,7 +5,8 @@ apis to serve dashboard
     1.) Git clone this repo
     2.) run `npm install`
     3.) add required configs to `config.js`
-    4.) node index.js
+            To get the zoom apiKey and secret : https://marketplace.zoom.us/docs/guides/build/jwt-app
+    5.) node index.js
  
 # dependency
     1.) Nodejs --> https://nodejs.org/en/download/
