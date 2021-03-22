@@ -10,7 +10,7 @@ async function V1AccountsPostMiddleware(req, res) {
     try {
         //Get account details
         let fetchedAccounts = await getAccountDetails(email_Id, tenantId)
-        console.log("Response ", fetchedAccounts)
+        console.log("Response ", Boolean(fetchedAccounts))
         resp = createResponseObject(fetchedAccounts, 200)
         res.status(resp.statusCode).send(resp.data);
     } catch (error) {

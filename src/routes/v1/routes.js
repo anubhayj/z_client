@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const router = require('express').Router();
-const routeMiddleWares = require('../../routes/v1/routesMiddleWare')
+const routeMiddleWares = require('./routesMiddleWare')
 const coreServices = require('../../../zoomServices/zoomServices')
 
 

@@ -21,11 +21,11 @@ class DbManager {
             return null;
         }
         if (this.db) return this.db;
-        let options = {};
+        let options = {
+            useUnifiedTopology: true
+        };
         //options = helpers.getMongoCertificate(this.cert);
         options["useNewUrlParser"] = true;
-        console.log(" URL :::: ", this.url)
-        console.log(" DbName :::: ", this.DbName)
         const client = await MongoClient.connect(this.url, options);
         return client.db(this.DbName);
     }
