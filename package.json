@@ -4,8 +4,11 @@
   "description": "apis to serve dashboard",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.5"
   },
   "devDependencies": {},
   "scripts": {
