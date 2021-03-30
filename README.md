@@ -28,6 +28,7 @@ apis to serve dashboard
         meet_min:128
 
     ** Meetings / days (sample of 30 records) ***
-    <img width="1275" alt="Screenshot 2021-03-30 at 5 40 54 PM" src="https://user-images.githubusercontent.com/58457067/112986690-6ff2f680-917f-11eb-9aa2-86efabc98acc.png">
+    ![meetings_day2](https://user-images.githubusercontent.com/58457067/112988131-1ee40200-9181-11eb-8805-1015565ed4d8.png)
+
 
 
