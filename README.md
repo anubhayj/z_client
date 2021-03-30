@@ -20,18 +20,16 @@ apis to serve dashboard
     **Most Busy Day **
 ![most_busy_day](https://user-images.githubusercontent.com/58457067/112960846-745ce680-9162-11eb-8f1f-dfe19991731e.png)
 
+    ** Meetings / days (sample of 30 records) ***
+![meetings_day2](https://user-images.githubusercontent.com/58457067/112988304-505ccd80-9181-11eb-9bbf-055bbaa3b573.png)
+
+
     ** Most active User ***
         name:"test56"
         total_meetings:577
         avg_meetings:6
         participants:27
         meet_min:128
-
-
-    ** Meetings / days (sample of 30 records) ***
-![meetings_day2](https://user-images.githubusercontent.com/58457067/112988304-505ccd80-9181-11eb-9bbf-055bbaa3b573.png)
-
-
 
 
 
