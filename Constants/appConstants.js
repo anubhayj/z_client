@@ -1,3 +1,6 @@
+/**
+ * Licensed Material - Property of anubhayj@gmail.com
+ */
 /** Add these variables for local setup */
 //const env = 'development' /*process.env.NODE_ENV || 'production'*/
 

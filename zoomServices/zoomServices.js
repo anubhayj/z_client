@@ -4,6 +4,9 @@
 const jwt = require('jsonwebtoken');
 const helpers = require("../utils/helper")
 const config = require('../Constants/appConstants')
+const daily_report = require("../IngestionController/daily_meeting")
+const userWiseMeetingReport = require("../IngestionController/userwise_meeting_report")
+
 
 /** This function will be made dynamic */
 async function authToken(tenantId = "") {
@@ -33,10 +36,21 @@ async function getAccountDetails(email_Id, tenantId) {
 }
 
 
-
-module.exports = {
-    getAccountDetails: getAccountDetails
+function usageReports(days) {
+    console.log("Generating usageReport")
+    return daily_report(days)
 }
 
 
+function userWiseMeetingReports() {
+    console.log("Generating userWiseMeetingReport")
+
+    return userWiseMeetingReport()
+}
+
+module.exports = {
+    getAccountDetails: getAccountDetails,
+    usageReports: usageReports,
+    userWiseMeetingReports: userWiseMeetingReports
+}
 

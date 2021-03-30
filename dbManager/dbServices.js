@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const dbManager = require('../dbManager/dbManager')
+const dbManager = require('./dbManager')
 class DbServices {
 
     constructor(url, cert, dbname, db) {
@@ -19,9 +19,14 @@ class DbServices {
     }
 
     async insertDocs(docs, collectionName) {
-        let db = await this.getDB();
-        let data = await db.collection(collectionName).insertMany(docs);
-        return data;
+        try {
+            let db = await this.getDB();
+            console.log("type of docs", typeof (docs))
+            let data = await db.collection(collectionName).insertMany(docs, { ordered: false });
+            return data;
+        } catch (error) {
+            console.log("Exception Occured ::: ", error.message)
+        }
     }
 
     async insertDoc(doc, collectionName) {
@@ -30,9 +35,9 @@ class DbServices {
         return data;
     }
 
-    async findDoc(query, collectionName) {
+    async findDoc(filter, collectionName) {
         let db = await this.getDB();
-        let data = await db.collection(collectionName).findOne(query);
+        let data = await db.collection(collectionName).findOne(filter);
         return data;
     }
 
@@ -53,7 +58,6 @@ class DbServices {
         let data = await db.collection(collectionName).deleteOne(filter);
         return data;
     }
-
 
 }
 

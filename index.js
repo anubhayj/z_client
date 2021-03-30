@@ -6,6 +6,16 @@ const app = express();
 const routes = require('./src/routes/v1/routes') //('./src/routes/v1/routes');
 const bodyParser = require("body-parser");
 const config = require('./Constants/appConstants');
+const task = require('./TaskManager/scheduler');
+
+
+// Todo : Dynamically initiate and close schedulers
+//task().start()
+const cors = require("cors");
+let corsOptions = {
+    origin: true
+};
+app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(bodyParser.json({type: 'application/json'}));

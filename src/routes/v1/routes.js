@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
 const router = require('express').Router();
 const routeMiddleWares = require('./routesMiddleWare')
-const coreServices = require('../../../zoomServices/zoomServices')
+const { dailyUsagePipeline, userWiseReport } = require('../../../postEnrichmentPipelines/postProcessPipelines');
+const { report } = require('../../../Enrichment/routes/v1/routes');
 
 
 router.post('/api/v1/userinfo', async function (req, res) {
@@ -9,20 +10,24 @@ router.post('/api/v1/userinfo', async function (req, res) {
     routeMiddleWares.V1AccountsPostMiddleware(req, res)
 });
 
-router.post('/api/v1/postRoute2', async function (req, res) {
-    let { type } = req.params;
-    console.log(`Caller type  ---> ${type}`)
-    console.log(`Post Called ${type}::::::: --> /api/v1/:tenantId/entity/${type} `)
-    routeMiddleWares.V1EntityPostMiddleware(req, res)
-});
+router.get('/api/v1/:_id', async function (req, res) {
+    let { tenantId } = req.query
+    let reportModel = req.params._id
+    let dbRead = req.app.get("pool")[tenantId].dbWrite
+    let data = ""
+    console.log("reportModel ::::: ", reportModel)
 
-router.post('/api/v1/postRoute3', async function (req, res) {
-    let { type } = req.params;
-    console.log(`Caller type  ---> ${type}`)
-    console.log(`Post Called ${type}::::::: --> /api/v1/:tenantId/entity/${type} `)
-    routeMiddleWares.V1EntityPostMiddleware(req, res)
-});
+    if (reportModel === 'dailyUsagePipeline') {
+        console.log(`Serving daily usage data to UI ::::::: --> /api/v1/userinfo `)
+        data = await dbRead.aggregateDocs(dailyUsagePipeline, "DailyUsage")
+    }
+    if (reportModel === 'userWiseReport') {
+        console.log(`Serving daily usage data to UI ::::::: --> /api/v1/userinfo `)
+        data = await dbRead.aggregateDocs(userWiseReport, "userWiseMeetingReport")
+    }
 
+    res.status(200).send(data)
+});
 
 
 module.exports = router;
