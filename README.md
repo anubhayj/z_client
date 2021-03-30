@@ -35,5 +35,7 @@ apis to serve dashboard
         ** TeamWise report ****
  ![TeamWise](https://user-images.githubusercontent.com/58457067/113017199-d6d2d880-919c-11eb-9f76-8fd3f8943ce6.png)
 
+        ** Summing it up ****
+  <img width="1658" alt="Screenshot 2021-03-31 at 12 19 38 AM" src="https://user-images.githubusercontent.com/58457067/113040933-00006280-91b7-11eb-8931-b3aa8a7d903c.png">
 
 
