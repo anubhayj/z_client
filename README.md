@@ -26,3 +26,6 @@ apis to serve dashboard
         avg_meetings:6
         participants:27
         meet_min:128
+
+    ** Meetings / days (sample of 30 records) ***
+    <img width="1275" alt="Screenshot 2021-03-30 at 5 40 54 PM" src="https://user-images.githubusercontent.com/58457067/112986605-518cfb00-917f-11eb-9bbf-b759df77952d.png">
