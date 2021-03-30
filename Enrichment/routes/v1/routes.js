@@ -4,8 +4,7 @@ const ingest = require('./routesMiddleware')
 const postProcess = require('../../../postEnrichmentPipelines/postProcessPipelines')
 
 
-router.get('/orc/v1/ingest', async function (req, res) {
-    console.log("Testing ::::: ")
+router.post('/orc/v1/ingest', async function (req, res) {
     /** TODO : check if other job is running else donot start */
     ingest(req, res)
     //postProcess(req)

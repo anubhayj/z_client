@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const router = require('express').Router();
 const routeMiddleWares = require('./routesMiddleWare')
-const { dailyUsagePipeline, userWiseReport } = require('../../../postEnrichmentPipelines/postProcessPipelines');
+const { dailyUsagePipeline, userWiseReport, datewiseReport, teamWiseReport, teamAndOtherDimension } = require('../../../postEnrichmentPipelines/postProcessPipelines');
 const { report } = require('../../../Enrichment/routes/v1/routes');
 
 
@@ -17,13 +17,24 @@ router.get('/api/v1/:_id', async function (req, res) {
     let data = ""
     console.log("reportModel ::::: ", reportModel)
 
-    if (reportModel === 'dailyUsagePipeline') {
-        console.log(`Serving daily usage data to UI ::::::: --> /api/v1/userinfo `)
+    if (reportModel === 'dailyUsage') {
         data = await dbRead.aggregateDocs(dailyUsagePipeline, "DailyUsage")
     }
+
     if (reportModel === 'userWiseReport') {
-        console.log(`Serving daily usage data to UI ::::::: --> /api/v1/userinfo `)
         data = await dbRead.aggregateDocs(userWiseReport, "userWiseMeetingReport")
+    }
+
+    if (reportModel === 'dateWise') {
+        data = await dbRead.aggregateDocs(datewiseReport, "userWiseMeetingReport")
+    }
+
+    if (reportModel === 'teamWise') {
+        data = await dbRead.aggregateDocs(teamWiseReport, "userWiseMeetingReport")
+    }
+
+    if (reportModel === 'teamAndOtherDimension') {
+        data = await dbRead.aggregateDocs(teamAndOtherDimension, "userWiseMeetingReport")
     }
 
     res.status(200).send(data)

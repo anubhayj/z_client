@@ -10,7 +10,7 @@ const task = require('./TaskManager/scheduler');
 
 
 // Todo : Dynamically initiate and close schedulers
-//task().start()
+task().start()
 const cors = require("cors");
 let corsOptions = {
     origin: true

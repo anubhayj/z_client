@@ -18,8 +18,8 @@ const getTenantDB = async function (req, res, next) {
         if (tenantDbObj !== [] && !tenantDbObj.length < 1) {
             let tenantDBRead = new dbServices(tenantDbObj[0].mongo_url, tenantDbObj[0].mongo_crt, tenantDbObj[0].mongo_db)
             let tenantDBWrite = new dbServices(tenantDbObj[0].mongo_url, tenantDbObj[0].mongo_crt, tenantDbObj[0].mongo_db)
-            pool[tenantId] = { dbread: tenantDBRead, dbWrite: tenantDBWrite }
-            global.db = { tenantId: { dbread: tenantDBRead, dbWrite: tenantDBWrite } }
+            pool[tenantId] = { dbRead: tenantDBRead, dbWrite: tenantDBWrite }
+            global.db = { tenantId: { dbRead: tenantDBRead, dbWrite: tenantDBWrite } }
             req.app.set("pool", pool);
         } else {
             console.log(` Tenant : ${tenantId} not found`)
@@ -27,6 +27,7 @@ const getTenantDB = async function (req, res, next) {
         }
     }
     console.log(`pool[${tenantId}] --->`, Boolean(pool[tenantId]))
+    console.log(pool[tenantId])
     next()
 }
 

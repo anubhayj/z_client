@@ -8,7 +8,11 @@ const daily_report = require("../IngestionController/daily_meeting")
 const userWiseMeetingReport = require("../IngestionController/userwise_meeting_report")
 
 
-/** This function will be made dynamic */
+/**
+ * 
+ * @param {*} tenantId 
+ * @returns 
+ */
 async function authToken(tenantId = "") {
     let payload = {
         iss: config.development.APIKey, //TODO : Make it dynamic
@@ -18,6 +22,12 @@ async function authToken(tenantId = "") {
     return token
 }
 
+/**
+ * 
+ * @param {*} email_Id 
+ * @param {*} tenantId 
+ * @returns 
+ */
 async function getAccountDetails(email_Id, tenantId) {
     let token = await authToken(tenantId)
     let url = 'https://api.zoom.us/v2/users'
@@ -35,17 +45,34 @@ async function getAccountDetails(email_Id, tenantId) {
     return response.data
 }
 
-
+/**
+ * @param {*} days : 
+ * 
+ * @returns 
+ */
 function usageReports(days) {
-    console.log("Generating usageReport")
-    return daily_report(days)
+
+    console.time("Generating_usageReport")
+    console.log(" :::: Generating usageReport :::: \n")
+    let data = daily_report(days)
+    console.timeEnd("Generating_usageReport")
+
+    return data
 }
 
+/**
+ * 
+ * @param {*} days 
+ * @returns 
+ */
+function userWiseMeetingReports(days) {
 
-function userWiseMeetingReports() {
-    console.log("Generating userWiseMeetingReport")
+    console.time("Generating_userWiseMeetingReport")
+    console.log("::: Generating userWiseMeetingReport :::: \n")
+    let data = userWiseMeetingReport(days)
+    console.timeEnd("Generating_userWiseMeetingReport")
 
-    return userWiseMeetingReport()
+    return data
 }
 
 module.exports = {

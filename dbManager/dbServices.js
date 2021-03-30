@@ -21,7 +21,6 @@ class DbServices {
     async insertDocs(docs, collectionName) {
         try {
             let db = await this.getDB();
-            console.log("type of docs", typeof (docs))
             let data = await db.collection(collectionName).insertMany(docs, { ordered: false });
             return data;
         } catch (error) {
