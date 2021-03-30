@@ -17,6 +17,6 @@ apis to serve dashboard
 
 # Adding some visualisations
 
-Most Busy Day 
+    **Most Busy Day **
 ![most_busy_day](https://user-images.githubusercontent.com/58457067/112960846-745ce680-9162-11eb-8f1f-dfe19991731e.png)
 
