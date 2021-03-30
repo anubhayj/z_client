@@ -28,7 +28,9 @@ apis to serve dashboard
         meet_min:128
 
     ** Meetings / days (sample of 30 records) ***
-    ![meetings_day2](https://user-images.githubusercontent.com/58457067/112988131-1ee40200-9181-11eb-8805-1015565ed4d8.png)
+![meetings_day2](https://user-images.githubusercontent.com/58457067/112988304-505ccd80-9181-11eb-9bbf-055bbaa3b573.png)
+
+
 
 
 
