@@ -39,4 +39,6 @@ apis to serve dashboard
   <img width="1656" alt="Screenshot 2021-03-31 at 12 29 37 AM" src="https://user-images.githubusercontent.com/58457067/113041970-3ab6ca80-91b8-11eb-8289-a9626109fa8a.png">
 
 
+<img width="852" alt="Screenshot 2021-03-31 at 12 31 42 AM" src="https://user-images.githubusercontent.com/58457067/113042269-9a14da80-91b8-11eb-8b76-1aaa7f88764d.png">
+
 
