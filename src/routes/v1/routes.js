@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const router = require('express').Router();
-const routeMiddleWares = require('./routesMiddleWare')
+const routeMiddleWares = require('./routesMiddleware')
 const { dailyUsagePipeline, userWiseReport, datewiseReport, teamWiseReport, teamAndOtherDimension } = require('../../../postEnrichmentPipelines/postProcessPipelines');
 const { report } = require('../../../Enrichment/routes/v1/routes');
 

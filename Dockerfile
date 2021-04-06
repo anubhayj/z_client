@@ -6,11 +6,10 @@ LABEL name="cb-nodejs10-ubi"\
     summary="Zoom API server microservice" \
     description="Nodejs 10 Base image used by G2 Zoom API microservices"
 RUN yum -y install nodejs
-ENV PATH=/usr/bin:$PATH
 
 WORKDIR /opt/app
 COPY package*.json ./
-RUN npm install
+RUN npm install -g
 
 COPY . .
 
